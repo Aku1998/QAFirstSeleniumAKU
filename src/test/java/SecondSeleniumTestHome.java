@@ -1,8 +1,12 @@
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+
+import java.util.List;
 
 public class SecondSeleniumTestHome {
     WebDriver shop;
@@ -16,11 +20,23 @@ public class SecondSeleniumTestHome {
 
     }
     @Test
-    public void newWindow(){
-        System.out.println("the window is open");
+    public void testFindElementsTagName() {
+
+        WebElement id = shop.findElement(By.cssSelector("#bar-notification"));
+        System.out.println(id.getText());
+
+        WebElement a = shop.findElement(By.cssSelector("#dialog-notifications-success"));
+        System.out.println(a);
+
+        List<WebElement> elements_a = shop.findElements(By.tagName("meta"));
+        System.out.println(elements_a.size());
+
+        WebElement b = shop.findElement(By.tagName(" script"));
+        System.out.println(b);
     }
-    @AfterMethod
-    public void shop(){
-        shop.getWindowHandle();
+
+    @AfterMethod(enabled = true)
+    public void tearDown() {
+        shop.quit();
     }
 }
