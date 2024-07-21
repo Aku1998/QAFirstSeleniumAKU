@@ -1,3 +1,4 @@
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
@@ -18,7 +19,7 @@ public class FirstSeleniumTest {
         driver.navigate().back(); // Возвращает на предыдущую страницу
         driver.navigate().forward(); // Переводит вперёд
         driver.navigate().refresh(); // Обновляет страницу
-        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(1000)); // Ожидание локатора
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10)); // Ожидание локатора
     }
 
     @Test
@@ -28,7 +29,7 @@ public class FirstSeleniumTest {
 
     @AfterMethod
     public void tearDown() {
-        driver.quit(); //close web
-        //driver.close();
+        driver.quit(); // Закрывает браузер
+        //driver.close(); // Закрывает вкладку
     }
 }
