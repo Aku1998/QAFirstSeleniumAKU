@@ -34,6 +34,15 @@ public class SecondSeleniumTestHome {
         WebElement b = shop.findElement(By.tagName(" script"));
         System.out.println(b);
     }
+    @Test
+    public void testFindElementsXpathHomeWork(){
+
+        shop.findElement(By.xpath("//*[@class='master-wrapper-content']"));
+        shop.findElement(By.xpath("//*[@id='dialog-notifications-success']"));
+        shop.findElement(By.xpath(" //div[@id='dialog-notifications-error']"));
+        shop.findElement(By.xpath("//input[contains(@id,'dialog-notifications-success')]"));
+        shop.findElement(By.xpath("//div[contains(@class,'error')]" ));
+    }
 
     @AfterMethod(enabled = true)
     public void tearDown() {
